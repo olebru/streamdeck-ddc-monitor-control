@@ -1,0 +1,17 @@
+{
+	"extends": "@tsconfig/node24/tsconfig.json",
+	"compilerOptions": {
+		"customConditions": [
+			"node"
+		],
+		"module": "ES2022",
+		"moduleResolution": "Bundler",
+		"noImplicitOverride": true,
+		"outDir": "build",
+		"rootDir": "src",
+		"importHelpers": true
+	},
+	"include": [
+		"src/**/*.ts"
+	]
+}

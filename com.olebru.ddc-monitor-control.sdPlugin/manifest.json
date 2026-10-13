@@ -1,0 +1,76 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"Name": "DDC Monitor Control",
+	"Version": "0.3.0.0",
+	"Author": "olebru",
+	"Actions": [
+		{
+			"Name": "Toggle input",
+			"UUID": "com.olebru.ddc-monitor-control.toggle",
+			"Icon": "imgs/actions/toggle/icon",
+			"Tooltip": "Switches the monitor between two input sources chosen in the property inspector.",
+			"PropertyInspectorPath": "ui/toggle-input.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"DisableAutomaticStates": true,
+			"States": [
+				{
+					"Image": "imgs/actions/toggle/input-a",
+					"TitleAlignment": "bottom",
+					"ShowTitle": true
+				},
+				{
+					"Image": "imgs/actions/toggle/input-b",
+					"TitleAlignment": "bottom",
+					"ShowTitle": true
+				}
+			]
+		},
+		{
+			"Name": "Monitor setting",
+			"UUID": "com.olebru.ddc-monitor-control.setting",
+			"Icon": "imgs/actions/setting/icon",
+			"Tooltip": "Sets or steps brightness, contrast or a color gain on a key, or adjusts it with a dial.",
+			"PropertyInspectorPath": "ui/monitor-setting.html",
+			"Controllers": [
+				"Keypad",
+				"Encoder"
+			],
+			"Encoder": {
+				"layout": "$B1",
+				"Icon": "imgs/actions/setting/encoder",
+				"TriggerDescription": {
+					"Rotate": "Adjust",
+					"Push": "Set to value",
+					"Touch": "Set to value"
+				}
+			},
+			"States": [
+				{
+					"Image": "imgs/actions/setting/key"
+				}
+			]
+		}
+	],
+	"Category": "DDC Monitor Control",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Switches the input source and adjusts brightness, contrast and color gains of a monitor over DDC/CI on Windows. Tested only on the Samsung Odyssey OLED G9 (G93SC). Other monitors, including other Odyssey G9 models, are untested.",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "disabled"
+	},
+	"UUID": "com.olebru.ddc-monitor-control"
+}

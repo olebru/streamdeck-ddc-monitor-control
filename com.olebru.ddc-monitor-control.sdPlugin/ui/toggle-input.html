@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+		<style>
+			.custom-input {
+				display: none;
+			}
+			.custom-input.visible {
+				display: flex;
+			}
+		</style>
+	</head>
+	<body>
+		<sdpi-item label="Input A">
+			<sdpi-select id="input-a" setting="inputA" default="15">
+				<option value="15">DisplayPort 1</option>
+				<option value="16">DisplayPort 2</option>
+				<option value="17">HDMI 1</option>
+				<option value="18">HDMI 2</option>
+				<option value="27">USB-C</option>
+				<option value="5">HDMI 1 (G93SC value 5)</option>
+				<option value="custom">Other value</option>
+			</sdpi-select>
+		</sdpi-item>
+		<sdpi-item id="custom-a" class="custom-input" label="Value A">
+			<sdpi-textfield setting="customA" pattern="[0-9]+" required></sdpi-textfield>
+		</sdpi-item>
+		<sdpi-item label="Input B">
+			<sdpi-select id="input-b" setting="inputB" default="5">
+				<option value="15">DisplayPort 1</option>
+				<option value="16">DisplayPort 2</option>
+				<option value="17">HDMI 1</option>
+				<option value="18">HDMI 2</option>
+				<option value="27">USB-C</option>
+				<option value="5">HDMI 1 (G93SC value 5)</option>
+				<option value="custom">Other value</option>
+			</sdpi-select>
+		</sdpi-item>
+		<sdpi-item id="custom-b" class="custom-input" label="Value B">
+			<sdpi-textfield setting="customB" pattern="[0-9]+" required></sdpi-textfield>
+		</sdpi-item>
+		<script>
+			function showCustomInputWhenSelected(selectId, customItemId) {
+				const select = document.getElementById(selectId);
+				const customItem = document.getElementById(customItemId);
+				const update = () => customItem.classList.toggle("visible", select.value === "custom");
+				select.addEventListener("valuechange", update);
+				update();
+			}
+			showCustomInputWhenSelected("input-a", "custom-a");
+			showCustomInputWhenSelected("input-b", "custom-b");
+		</script>
+	</body>
+</html>

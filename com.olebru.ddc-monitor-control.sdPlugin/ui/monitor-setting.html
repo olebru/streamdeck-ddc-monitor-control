@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Setting">
+			<sdpi-select setting="setting" default="brightness">
+				<option value="brightness">Brightness</option>
+				<option value="contrast">Contrast</option>
+				<option value="red">Red gain</option>
+				<option value="green">Green gain</option>
+				<option value="blue">Blue gain</option>
+			</sdpi-select>
+		</sdpi-item>
+		<sdpi-item label="Key press">
+			<sdpi-radio setting="keyMode" default="set" columns="1">
+				<option value="set">Set to value</option>
+				<option value="step">Change by step</option>
+			</sdpi-radio>
+		</sdpi-item>
+		<sdpi-item label="Value (%)">
+			<sdpi-range setting="value" default="50" min="0" max="100" step="1" value-type="number" showlabels></sdpi-range>
+		</sdpi-item>
+		<sdpi-item label="Step (%)">
+			<sdpi-textfield setting="step" default="5" pattern="-?[0-9]+" value-type="number"></sdpi-textfield>
+		</sdpi-item>
+	</body>
+</html>
